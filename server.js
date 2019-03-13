@@ -19,6 +19,7 @@ var cheerio = require("cheerio");
 var app = express();
 var PORT = process.env.PORT || 8080;
 
+
 // Requiring our models for syncing
 var db = require("./models");
 
@@ -54,7 +55,10 @@ db.sequelize.sync({}).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
-});
+}).catch(function (err) {
+  console.log(err)
+});;
+
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/findscraper"
 mongoose.connect("mongodb://heroku_lsh61zsr:ghp82sdqup681fe1smnjo5cv44@ds247587.mlab.com:47587/heroku_lsh61zsr");
