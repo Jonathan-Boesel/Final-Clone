@@ -4,7 +4,10 @@
       "password": "metj7274qr2g30v8",
       "database": "vadto3x4b32c91ze",
       "host": "h7xe2knj2qb6kxal.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-      "dialect": "mysql"
+      "dialect": "mysql",
+      "define": {
+        "timestamps": false
+    }
     },
     "test": {
       "username": "root",

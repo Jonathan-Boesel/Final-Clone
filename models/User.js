@@ -40,7 +40,7 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-   isBand: { // is this a existing band
+  isBand: { // is this a existing band
       type: DataTypes.STRING,
       allowNull: false,
       len: [1]

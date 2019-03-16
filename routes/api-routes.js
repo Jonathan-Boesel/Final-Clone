@@ -12,9 +12,11 @@ module.exports = function(app) {
     var query = {};
     // find all of them
     db.User.findAll({
-      where: query,
+      where: [query],
     }).then(function(dbUser) {
       res.json(dbUser);
+    }).catch(function(err){
+      console.log(err)
     });
   });
 

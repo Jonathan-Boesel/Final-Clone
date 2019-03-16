@@ -108,10 +108,10 @@ window.onload = function() {
       if (err != "success") {
         console.log(err)
       }
-      else {
+      // else {
 
-        window.location.href = '/login';
-      }
+      //   window.location.href = '/login';
+      // }
       // If there's an error, handle it by throwing up an alert
     }).catch(handleErr);
   }
