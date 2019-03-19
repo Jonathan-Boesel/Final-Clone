@@ -59,7 +59,13 @@ window.onload = function() {
     console.log($("#profileSearchInput").val())
     var isBand = $("input[name=group2]:checked").val();
     var instrumentsPlayed = $("input[name=group1]:checked").val();
-    var distanceAllowed = parseInt($("#test5").val());
+    var distanceAllowed
+    if (parseInt($("#test5").val()) == 100) {
+      distanceAllowed = 6371
+    } else {
+      distance = parseInt($("#test5").val())
+    }
+    console.log("++++++")
     console.log(distanceAllowed)
 
     var params = {
