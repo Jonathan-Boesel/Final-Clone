@@ -3,6 +3,7 @@ window.onload = function() {
   $("#locationCheck").on("click", function() {
         if ($("#locationCheck").prop("checked")) {
             console.log("checked");
+            getLocation();
             $("#userLocationParent").hide();
         }
         if (!$("#locationCheck").prop("checked")) {
@@ -11,23 +12,23 @@ window.onload = function() {
         }
     });
   var userAddress;
-  var startLocation
+  var startLocation;
   var myLatLng;
 
   function getLocation() {
     function showPosition(position) {
-      console.log("getting location")
+      console.log("getting location");
 
       var startLat = position.coords.latitude;
       var startLng = position.coords.longitude;
-      myLatLng = { lat: startLat, lng: startLng }
-      userAddress = JSON.stringify(myLatLng)
-      console.log(userAddress)
+      myLatLng = { lat: startLat, lng: startLng };
+      userAddress = JSON.stringify(myLatLng);
+      console.log(userAddress);
       // 	//Once the user's address is saved in the userAddress variable, call the initMap function to load the map
-      console.log(myLatLng)
+      console.log(myLatLng);
 
 
-    };
+    }
     //if geolocation is supported, the getCurrentPosition will be called
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
@@ -38,16 +39,16 @@ window.onload = function() {
     function showError(error) {
             switch (error.code) {
                 case error.PERMISSION_DENIED:
-                    alert("User denied the request for Geolocation, please refresh and try again or use destination.")
+                    alert("User denied the request for Geolocation, please refresh and try again or use destination.");
                     break;
                 case error.POSITION_UNAVAILABLE:
-                    alert("Location information is unavailable for your device, please refresh and try again or use destination.")
+                    alert("Location information is unavailable for your device, please refresh and try again or use destination.");
                     break;
                 case error.TIMEOUT:
-                    alert("The request to get user location timed out, please refresh and try again or use destination.")
+                    alert("The request to get user location timed out, please refresh and try again or use destination.");
                     break;
                 case error.UNKNOWN_ERROR:
-                    alert("An unknown error occurred, please refresh and try again or use destination.")
+                    alert("An unknown error occurred, please refresh and try again or use destination.");
                     break;
             }
         }
@@ -118,7 +119,6 @@ window.onload = function() {
     
     if ((userLocation != "") || $("#locationCheck").prop("checked")) {
       if ($("#locationCheck").prop("checked")) {
-        getLocation().done(function(){
           var newUser = {
             email: email,
             password: password,
@@ -153,7 +153,7 @@ window.onload = function() {
           $("#soundCloud").val("")
           $("#faceBook").val("")
           $("#reverbNation").val("")
-        })
+        
       }
       else {
         getUserLocation().done(function() {
@@ -193,10 +193,10 @@ window.onload = function() {
           $("#reverbNation").val("")
       
       
-              })
+              });
             }
     } else {
-      alert("No location, Geolocation may not be working or you did not input your location in the location field")
+      alert("No location, Geolocation may not be working or you did not input your location in the location field");
     }
   }
 
@@ -207,8 +207,8 @@ window.onload = function() {
       console.log(JSON.stringify(data));
       console.log(JSON.stringify(err));
       if (err != "success") {
-        console.log(err)
-        console.log(err.message)
+        console.log(err);
+        console.log(err.message);
       }
       // else {
 
